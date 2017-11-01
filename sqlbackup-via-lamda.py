@@ -68,6 +68,7 @@ def rds_backup_database(db_name):
                             (db_name,
                              "arn:aws:s3:::%s/DR/%s.bak" % (ENV_DATA['LAMBDA_RDS_S3_DST'], db_name),
                              '1'))
+             conn.commit()    
             for row in cursor:
                 print "Row=" + row
 
